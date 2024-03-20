@@ -1,6 +1,5 @@
 import React from 'react';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
-import { SectionHeading } from '../ui/Elements';
 
 export const TopSection = () => {
 	return (
