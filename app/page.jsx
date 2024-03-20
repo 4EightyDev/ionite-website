@@ -1,8 +1,7 @@
 import { Header } from '@/app/components/Header';
-import { Footer } from '@/app/components/Footer';
 import { TopSection } from '@/app/components/page-home/TopSection';
-import { PageSection } from '@/app/components/PageSection';
 import { Features } from '@/app/components/page-home/Features';
+import { PageSection } from '@/app/components/PageSection';
 
 export default function Home() {
 	return (
