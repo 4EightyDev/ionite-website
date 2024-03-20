@@ -3,31 +3,112 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+	--primary: 180deg 100% 50%;
+	--accent: 210deg 100% 50%;
+	--surface: 204deg 100% 6.75%;
+	--surface-10: 204deg 100% 9%;
+	--surface-20: 204deg 100% 15%;
+	--surface-30: 204deg 100% 30%;
+	--surface-40: 204deg 100% 40%;
+	--surface-50: 204deg 90% 50%;
+	--surface-60: 204deg 80% 60%;
+	--surface-70: 204deg 70% 70%;
+	--surface-80: 204deg 60% 86%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+} */
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+@layer base {
+	.popover-panel {
+		@apply rounded-xl bg-surface shadow-lg ring-1 ring-surface-20/75;
+	}
+	.panel {
+		@apply rounded-xl bg-surface-10/50 ring-1 ring-surface-20/75;
+	}
+}
+@layer components {
+	.input {
+		@apply w-full rounded-lg border-0 bg-transparent py-3 text-xs ring-1 ring-surface-20 duration-300 placeholder:text-xs placeholder:text-surface-60 focus:ring-inset focus:ring-accent;
+	}
+	.dropdown {
+		@apply absolute right-0 z-10 mt-3.5 w-56 origin-top-right overflow-hidden rounded-md shadow-lg ring-1 ring-surface-20 backdrop-blur-md focus:outline-none;
+	}
+	.divider-y {
+		@apply block h-px w-full flex-shrink-0 bg-surface-20;
+	}
+	.divider-x {
+		@apply block h-full w-px flex-shrink-0 bg-surface-20;
+	}
+	.subtitle {
+		@apply text-xs text-surface-30;
+	}
+	.title {
+		@apply text-base text-surface-80;
+	}
+	.border-gradient {
+		@apply border border-primary border-l-accent border-t-accent;
+	}
+	.text-gradient {
+		@apply max-w-max bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent brightness-125;
+	}
+
+	/* Mont Font */
+	@font-face {
+		font-family: 'Mont';
+		font-weight: 200;
+		font-display: block;
+		font-style: normal;
+		font-named-instance: 'Light';
+		src: url('/public/fonts/Mont-Light.woff') format('woff2');
+	}
+
+	@font-face {
+		font-family: 'Mont';
+		font-weight: 300;
+		font-display: block;
+		font-style: normal;
+		font-named-instance: 'Book';
+		src: url('/public/fonts/Mont-Book.woff') format('woff2');
+	}
+
+	@font-face {
+		font-family: 'Mont';
+		font-weight: 400;
+		font-display: block;
+		font-style: normal;
+		font-named-instance: 'Regular';
+		src: url('/public/fonts/Mont-Regular.woff') format('woff2');
+	}
+
+	@font-face {
+		font-family: 'Mont';
+		font-weight: 500;
+		font-display: block;
+		font-style: normal;
+		font-named-instance: 'SemiBold';
+		src: url('/public/fonts/Mont-SemiBold.woff') format('woff2');
+	}
+
+	@font-face {
+		font-family: 'Mont';
+		font-weight: 600;
+		font-display: block;
+		font-style: normal;
+		src: url('/public/fonts/Mont-Bold.woff') format('woff2');
+		font-named-instance: 'Bold';
+	}
 }
